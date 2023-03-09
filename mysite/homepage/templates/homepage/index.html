@@ -1,0 +1,19 @@
+<HTML>
+    <head>
+    <title>Homepage</title>
+    </head>
+    <body>
+    <h1>Homepage</h1>
+    <form method="POST" action="">
+        {% for q in qbase %}
+        {% csrf_token %}
+
+        <h1>{{forloop.counter}}.{{ q.question }}</h1>
+        <input type="text" name="UserAnswer{{forloop.counter0}}">
+        <input type="hidden" value="{{q.answer}}" name="TrueAnswer{{forloop.counter0}}">
+        {% endfor %}
+    <button>Submit</button>
+    </form>
+    <p>{{a}}</p>
+    </body>
+    </HTML>
